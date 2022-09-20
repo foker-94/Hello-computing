@@ -1,0 +1,188 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</head>
+
+<body>
+<script>
+
+    $(document).ready(function () {
+
+        $("#search").change(function (e) {
+            hideAll();
+            $(e.target.options).removeClass();
+            var $selectedOption = $(e.target.options[e.target.options.selectedIndex]);
+            $selectedOption.addClass('selected');
+            $('#' + $selectedOption.val()).show();
+        });
+    });
+
+    function hideAll() {
+        $("#square").hide();
+        $("#rectangle").hide();
+        $("#circle").hide();
+
+
+    }
+    function areaPer() {
+        var w = document.getElementById("width").value;
+        var h = document.getElementById("height").value;
+
+        var area = w * h;
+        var p = w*2;
+        var l = h*2;
+        var perimeter = p + l;
+
+        var value = perimeter;
+        var values = area;
+
+        document.getElementById("output").innerHTML = "surface: " + area + " Perimetre: " + perimeter;
+        document.getElementById("dim").innerHTML =
+            value * 10;
+        document.getElementById("cim").innerHTML =
+            value * 100;
+        document.getElementById("mim").innerHTML =
+            value * 1000;
+        document.getElementById("dim2").innerHTML =
+            values * 100;
+        document.getElementById("cim2").innerHTML =
+            values * 10000;
+        document.getElementById("mim2").innerHTML =
+            values * 1000000;
+
+    }
+
+    function areaSquare(value) {
+
+        var w = document.getElementById("side").value;
+
+
+        var area = w * w;
+        var perimeter = w * 4;
+        var value = perimeter;
+        var values = area;
+
+        document.getElementById("out").innerHTML = "surface: " + area + " Perimetre: " + perimeter;
+        document.getElementById("dm").innerHTML =
+            value * 10;
+        document.getElementById("cm").innerHTML =
+            value * 100;
+        document.getElementById("mm").innerHTML =
+            value * 1000;
+        document.getElementById("dm2").innerHTML =
+            values * 100;
+        document.getElementById("cm2").innerHTML =
+            values * 10000;
+        document.getElementById("mm2").innerHTML =
+            values * 1000000;
+        document.getElementById("area").innerHTML = "Area: " + area  ;
+        document.getElementById("perimeter").innerHTML = "Area: " + perimeter  ;
+    }
+
+    function areaCircle() {
+        var w = document.getElementById("rayon").value;
+
+
+        var area = w * w * 3.14;
+        var perimeter = w * 2 * 3.14;
+
+        var value = perimeter;
+        var values = area;
+
+        document.getElementById("input").innerHTML = "surface: " + area + " Perimetre: " + perimeter;
+        document.getElementById("dem").innerHTML =
+            value * 10;
+        document.getElementById("cem").innerHTML =
+            value * 100;
+        document.getElementById("mem").innerHTML =
+            value * 1000;
+        document.getElementById("dem2").innerHTML =
+            values * 100;
+        document.getElementById("cem2").innerHTML =
+            values * 10000;
+        document.getElementById("mem2").innerHTML =
+            values * 1000000;
+        document.getElementById("area").innerHTML = "Area: " + area  ;
+        document.getElementById("perimeter").innerHTML = "Area: " + perimeter  ;
+    }
+
+
+</script>
+
+<div class="search-form">
+
+    <div>
+        <select id="search" name="state">
+            <option value="search" class="selected">Selectionner une figure </option>
+            <option value="rectangle">Rectangle</option>
+            <option value="square">Carre</option>
+            <option value="circle">Cercle</option>
+        </select>
+    </div>
+
+    <div id="square">
+        <h1>Entrer le cote</h1>
+        <h2>Cote: <input type="number" id="side"></h2>
+
+        <button onclick="areaSquare()">Calcule de surface et perimetre </button>
+        <p id="out"></p>
+        <div>
+            <p ><strong>Conversion du perimetre </strong></p>
+            <p>Decimetre: <span id="dm"></span></p>
+            <p>Centimetre: <span id="cm"></span></p>
+            <p>milimetre: <span id="mm"></span></p>
+        </div>
+       <div>
+           <p ><strong>Conversion de la surface </strong></p>
+           <p >Conversion de la suface </p>
+           <p>Decimetre carre: <span id="dm2"></span></p>
+           <p>Centimetre carre: <span id="cm2"></span></p>
+           <p>milimetre carre: <span id="mm2"></span></p>
+       </div>
+
+    </div>
+    <div id="rectangle">
+        <h1>Entrer longueur et largeur </h1>
+        <h2>Longueur: <input type="number" id="width"></h2>
+        <h2>largeur: <input type="number" id="height"></h2>
+        <button onclick="areaPer()">Calcule de surface et perimetre </button>
+
+        <p id="output"></p>
+        <p ><strong>Conversion du perimetre </strong></p>
+        <p>Decimetre: <span id="dim"></span></p>
+        <p>Centimetre: <span id="cim"></span></p>
+        <p>milimetre: <span id="mim"></span></p>
+        <p id="output"></p>
+        <p ><strong>Conversion du perimetre </strong></p>
+        <p>Decimetre: <span id="dim2"></span></p>
+        <p>Centimetre: <span id="cim2"></span></p>
+        <p>milimetre: <span id="mim2"></span></p>
+    </div>
+    <div id="circle">
+        <h1>Entrer le rayon</h1>
+        <h2>Rayon: <input type="number" id="rayon"></h2>
+        <button onclick="areaCircle()">Calcule de surface et perimetre </button>
+        <p id="input"></p>
+        <div>
+            <p ><strong>Conversion du perimetre </strong></p>
+            <p>Decimetre: <span id="dem"></span></p>
+            <p>Centimetre: <span id="cem"></span></p>
+            <p>milimetre: <span id="mem"></span></p>
+        </div>
+        <div>
+            <p ><strong>Conversion de la surface </strong></p>
+            <p >Conversion de la suface </p>
+            <p>Decimetre carre: <span id="dem2"></span></p>
+            <p>Centimetre carre: <span id="cem2"></span></p>
+            <p>milimetre carre: <span id="mem2"></span></p>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+</div>
+</body>
